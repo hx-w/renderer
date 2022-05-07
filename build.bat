@@ -1,4 +1,4 @@
-rm -rf build/
+rmdir /s/q .\build
 cmake -S . -B build
 cmake --build ./build --config Debug --target xrender -j 10 --
-mv build/xrender ./
+move build\Debug\xrender.exe .\

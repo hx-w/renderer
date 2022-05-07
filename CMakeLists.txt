@@ -8,7 +8,13 @@ set(LOCAL_H ${PROJECT_SOURCE_DIR}/src)
 include_directories(${LOCAL_H})
 
 # 添加目标链接
-set(GLFW_LINK ${PROJECT_SOURCE_DIR}/src/libs/GLFW/libglfw.3.dylib)
+if (APPLE)
+    set(GLFW_LINK ${PROJECT_SOURCE_DIR}/src/libs/GLFW/libglfw.3.dylib)
+endif()
+if (WIN32)
+    set(GLFW_LINK ${PROJECT_SOURCE_DIR}/src/libs/GLFW/glfw3.lib)
+endif()
+
 link_libraries(${GLFW_LINK})
 
 # 执行编译命令
